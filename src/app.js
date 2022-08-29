@@ -1,151 +1,205 @@
-
-
-const createLi = (character) => {
+// Characters
+const createLi = (hairColor) => {
   const li = document.createElement('li');
-  li.textContent = `Name: ${character}` 
+  li.textContent = `Hair Color: ${hairColor}. Click here to find the characters first film.`; 
   return li
 };
 
-const appendToDom = (person) => {
-  const ul = document.querySelector('ul');
-  ul.appendChild(createLi(person));
-}
-
-const fetchCharacter = () => {
-  axios.get("https://swapi.dev/api/people/1").then(response => {
-    const character = response.data.name;
-    console.log(`get character`, character);
-    appendToDom(character);
-  }) 
-  .catch(error => console.error(error));
-  };
-
-fetchCharacter();
 
 
-/*
-main();
-
-function main() {
-  const url = "https://swapi.dev/api/people/1"
-  let personData;
-  axios.get(url).then((response) => {
-    personData = response.data;
-    return axios.get(response.data.films)
-  })
-  .then((filmsRes) => {
-    const filmsName = filmsRes.data.name;
-    personData.filmsName = filmsName;
-    const md = showMarkdown(personData);
-    console.log(md);
-  })
-  .catch((error) => console.log(error));
-}
-
-
-function showMarkdown(data) {
-  return `# ${data.name}
-## Info
-
-
-
-**Hair Color:** ${data.hair_color}
-
-**Eye Color:** ${data.eye_color}
-
-**Films:** ${data.films.title}
-`
-}
-
-function onClick(event) {
-  event.preventDefault();
-}
-
-
-
-function displayDetails(data) {
-  let name = document.querySelector("#name");
-  let hairColor = document.querySelector("#hair_color");
-  let eyeColor = document.querySelector("#eye_color");
-  let films = document.querySelector("#films[0],films[1],films[2],films[3]");
-  let title = document.querySelector("#title");
-  let episode= document.querySelector("#episode_id");
-  let director= document.querySelector("#director");
-  let characters = document.querySelector("#films[0],films[1],films[2],films[3]");
-}
-let detailsHTML = `<div class="row">`;
-forecast.forEach(function (forecastDay, index) {
-  if (index < 6) {
-    forecastHTML =
-      forecastHTML +
-      `
-      <div class="container">
-      <div class="row mb-5">
-       <div class="col d-none d-lg-block">
-                <input
-                   type="submit"
-                   value="Characters"
-                   class="form-control btn btn-primary w-100"
-                 />
-        </div>
-        <span><a class="active"
-         href="#"
-         id = "people[1]"
-         >  Luke Skywalker  </a><span></span><a class="active"
-         href="#"
-         id = "persons[4]">  Darth Vadar  </a><span></span><a class="active"
-         href="#"
-         id = "people[10]">  Obi-Wan Kenobi </a><span></span><a class="active"
-         href="#"
-         id = "people[5]">  Lei Organa  </a></span>
-      </div>
-      
-      <div class="col">
-         <div class="description">
-                
-                 <li class = "name"> ${name} </li>
-                 <li class = "hair color">${hair_color} </li>
-                 <li class = "eye color">${eye_color} </li>
-                 <li class = "films"><${films[1]},${films[4]},${films[5]},${films[7]} /li>
-         </div>
-       </div>
-             <br />
-         <div class="col d-none d-lg-block">
-                 <input
-                   type="submit"
-                   value="Films"
-                   class="form-control btn btn-primary w-100"
-                 />
-          </div>
-        </div>
-        <span><a class="active"
-         href="#"
-         id = "films[4]">  Phantom Menace  </a><span></span><a class="active"
-         href="#"
-         id = "films[1]">  A New Hope  </a><span></span><a class="active"
-         href="#"
-         id = "films[2]">  The Empire Strikes Back  </a><span></span><a class="active"
-         href="#"
-         id = "films[7]">  The Force Awakens  </a></span>
-        <br />
-        <br />
-             <div class="col">
-               <div class="desciption">
-               <div id="data"></div>
-                 <li class = "title">${title}</li>
-                 <li class = "episode">${episode}</li>
-                 <li class = "director">${director}</li>
-                 <li class = "characters">${people[1], people[4], people[5], people[10]}</li>
-               </div>
-             </div>
-           </div>
-`;
+  const appendToDom2 = (person) => {
+    const secondLi = document.getElementById('second');
+    secondLi.appendChild(createLi(person))
   }
-});
 
-detailsHTML = detailsHTML + `</div>`;
-detailsElement.innerHTML = detailsHTML;
+  const fetchCharacter2 = () => {
+    axios.get("https://swapi.dev/api/people/4").then(response => {
+      const hairColor = response.data.hair_color;
+      console.log(`get character`, hairColor);
+      appendToDom2(hairColor);
+  
+    }) 
+    .catch(error => console.error(error));
+    };
+
+  
+  document.getElementById('people[4]').addEventListener('click', fetchCharacter2);
+
+  const appendToDom = (person) => {
+    const firstLi = document.getElementById('first');
+    firstLi.appendChild(createLi(person))
+  }
+  
+  const fetchCharacter1 = () => {
+    axios.get("https://swapi.dev/api/people/1").then(response => {
+      const hairColor = response.data.hair_color;
+      console.log(`get character`, hairColor);
+      appendToDom(hairColor);
+  
+    }) 
+    .catch(error => console.error(error));
+    };
+  
+    document.getElementById('people[1]').addEventListener('click', fetchCharacter1);
+
+    //Films
+  
+    
+      const appendToDom3 = (person) => {
+        const li = document.getElementById('fifth');
+        li.appendChild(createLi2(person))
+      };
+
+       const createLi2 = (actor) => {
+      const li = document.createElement('li');
+      li.textContent = `Character: ${actor}. Click here to find out their first film.`; 
+      return li
+    };
+    
+      const fetchFilms1 = () => {
+        axios.get("https://swapi.dev/api/people/5").then(response => {
+          const oneCharacter = response.data.name;
+          console.log(`get character`, oneCharacter);
+          appendToDom3(oneCharacter);
+      
+        }) 
+        .catch(error => console.error(error));
+        };
+
+        document.getElementById('films[1]').addEventListener('click', fetchFilms1);
+
+        const appendToDom4 = (person) => {
+          const secondLi = document.getElementById('sixth');
+          secondLi.appendChild(createLi2(person))
+        }
+      
+        const fetchFilms2 = () => {
+          axios.get("https://swapi.dev/api/people/10/").then(response => {
+            const oneCharacter = response.data.name;
+            console.log(`get character`, oneCharacter);
+            appendToDom4(oneCharacter);
+        
+          }) 
+          .catch(error => console.error(error));
+          };
+  
+          document.getElementById('films[4]').addEventListener('click', fetchFilms2);
+
+        //Character 1 Link
+        const createLi3 = (film) => {
+        const li = document.createElement('li');
+        li.textContent = `Luke Skywalkers's first film was: ${film}`; 
+        return li
+      };
+      
+      
+      
+        const appendToDom5 = (person) => {
+          const li = document.getElementById('seventh');
+          li.appendChild(createLi3(person))
+        }
+      
+        const characterLink1 = () => {
+          axios.get("https://swapi.dev/api/films/1").then(response => {
+            const oneCharacter = response.data.title;
+            console.log(`get character`, oneCharacter);
+            appendToDom5(oneCharacter);
+        
+          }) 
+          .catch(error => console.error(error));
+          };
+  
+    
+    document.getElementById('first').addEventListener('click', characterLink1);
+
+//character 2 link
+
+const createLi4 = (film) => {
+  const li = document.createElement('li');
+  li.textContent = `Darth Vadar's first film was: ${film}`; 
+  return li
+};
 
 
-  */
- 
+
+  const appendToDom6 = (person) => {
+    const li = document.getElementById('eighth');
+    li.appendChild(createLi4(person))
+  }
+
+  const characterLink2 = () => {
+    axios.get("https://swapi.dev/api/films/6").then(response => {
+      const oneCharacter = response.data.title;
+      console.log(`get character`, oneCharacter);
+      appendToDom6(oneCharacter);
+  
+    }) 
+    .catch(error => console.error(error));
+    };
+
+
+document.getElementById('second').addEventListener('click', characterLink2);
+        
+        // film 1 link
+        const createLi5 = (film) => {
+          const li = document.createElement('li');
+          li.textContent = `Leia Organa's first film was: ${film}`; 
+          return li
+        };
+        
+        
+        
+          const appendToDom7 = (person) => {
+            const secondLi = document.getElementById('third');
+            secondLi.appendChild(createLi5(person))
+          }
+        
+          const filmsLink1 = () => {
+            axios.get("https://swapi.dev/api/films/1").then(response => {
+              const oneCharacter = response.data.title;
+              console.log(`get character`, oneCharacter);
+              appendToDom7(oneCharacter);
+          
+            }) 
+            .catch(error => console.error(error));
+            };
+    
+      
+      document.getElementById('fifth').addEventListener('click', filmsLink1);
+    
+      //film 2 link
+    const createLi6 = (film) => {
+      const li = document.createElement('li');
+      li.textContent = `Obi-Wan Kenobi's first film was: ${film}`; 
+      return li
+    };
+
+      const appendToDom8 = (person) => {
+        const firstLi = document.getElementById('fourth');
+        firstLi.appendChild(createLi6(person))
+      }
+      
+      const filmsLink2 = () => {
+        axios.get("https://swapi.dev/api/films/1").then(response => {
+          const oneCharacter = response.data.title;
+          console.log(`get character`, oneCharacter);
+          appendToDom8(oneCharacter);
+      
+        }) 
+        .catch(error => console.error(error));
+        };
+      
+        document.getElementById('sixth').addEventListener('click', filmsLink2);
+  
+  /*
+  document.getElementById('people[4]').addEventListener('click', fetchCharacter2);
+  const fetchCharacter2 = () => {
+    axios.get("https://swapi.dev/api/people/4").then(response => {
+      const character = response.data.name;
+      console.log(`get character`, character);
+      appendToDom(character);
+  
+    }) 
+    .catch(error => console.error(error));
+    };
+    */
