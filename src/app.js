@@ -15,7 +15,6 @@ const createLi = (hairColor) => {
   const fetchCharacter2 = () => {
     axios.get("https://swapi.dev/api/people/4").then(response => {
       const hairColor = response.data.hair_color;
-      console.log(`get character`, hairColor);
       appendToDom2(hairColor);
   
     }) 
@@ -33,7 +32,6 @@ const createLi = (hairColor) => {
   const fetchCharacter1 = () => {
     axios.get("https://swapi.dev/api/people/1").then(response => {
       const hairColor = response.data.hair_color;
-      console.log(`get character`, hairColor);
       appendToDom(hairColor);
   
     }) 
@@ -59,7 +57,6 @@ const createLi = (hairColor) => {
       const fetchFilms1 = () => {
         axios.get("https://swapi.dev/api/people/5").then(response => {
           const oneCharacter = response.data.name;
-          console.log(`get character`, oneCharacter);
           appendToDom3(oneCharacter);
       
         }) 
@@ -76,7 +73,6 @@ const createLi = (hairColor) => {
         const fetchFilms2 = () => {
           axios.get("https://swapi.dev/api/people/10/").then(response => {
             const oneCharacter = response.data.name;
-            console.log(`get character`, oneCharacter);
             appendToDom4(oneCharacter);
         
           }) 
@@ -102,7 +98,6 @@ const createLi = (hairColor) => {
         const characterLink1 = () => {
           axios.get("https://swapi.dev/api/films/1").then(response => {
             const oneCharacter = response.data.title;
-            console.log(`get character`, oneCharacter);
             appendToDom5(oneCharacter);
         
           }) 
@@ -130,7 +125,6 @@ const createLi4 = (film) => {
   const characterLink2 = () => {
     axios.get("https://swapi.dev/api/films/6").then(response => {
       const oneCharacter = response.data.title;
-      console.log(`get character`, oneCharacter);
       appendToDom6(oneCharacter);
   
     }) 
@@ -157,7 +151,6 @@ document.getElementById('second').addEventListener('click', characterLink2);
           const filmsLink1 = () => {
             axios.get("https://swapi.dev/api/films/1").then(response => {
               const oneCharacter = response.data.title;
-              console.log(`get character`, oneCharacter);
               appendToDom7(oneCharacter);
           
             }) 
@@ -182,7 +175,6 @@ document.getElementById('second').addEventListener('click', characterLink2);
       const filmsLink2 = () => {
         axios.get("https://swapi.dev/api/films/1").then(response => {
           const oneCharacter = response.data.title;
-          console.log(`get character`, oneCharacter);
           appendToDom8(oneCharacter);
       
         }) 
@@ -191,15 +183,4 @@ document.getElementById('second').addEventListener('click', characterLink2);
       
         document.getElementById('sixth').addEventListener('click', filmsLink2);
   
-  /*
-  document.getElementById('people[4]').addEventListener('click', fetchCharacter2);
-  const fetchCharacter2 = () => {
-    axios.get("https://swapi.dev/api/people/4").then(response => {
-      const character = response.data.name;
-      console.log(`get character`, character);
-      appendToDom(character);
   
-    }) 
-    .catch(error => console.error(error));
-    };
-    */
